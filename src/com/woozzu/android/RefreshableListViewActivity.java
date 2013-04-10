@@ -1,14 +1,13 @@
 package com.woozzu.android;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
-
 import com.woozzu.android.widget.RefreshableListView;
 import com.woozzu.android.widget.RefreshableListView.OnRefreshListener;
+
+import java.util.ArrayList;
 
 public class RefreshableListViewActivity extends Activity {
 	private ArrayList<String> mItems;
@@ -41,7 +40,7 @@ public class RefreshableListViewActivity extends Activity {
         // Callback to refresh the list
         mListView.setOnRefreshListener(new OnRefreshListener() {
             @Override
-            public void onRefresh() {
+            public void onRefresh(RefreshableListView listView) {
                 new NewDataTask().execute();
             }
         });
